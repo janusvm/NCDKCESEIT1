@@ -57,6 +57,7 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\ParcelTypes.sql" />
@@ -68,5 +69,8 @@
     <Build Include="Tables\Parcel.sql" />
     <Build Include="Tables\Users.sql" />
     <Build Include="Tables\ServiceAccounts.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\CreateCodelist.sql" />
   </ItemGroup>
 </Project>

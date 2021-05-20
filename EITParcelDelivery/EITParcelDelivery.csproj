@@ -124,6 +124,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Edge.cs" />
+    <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\Parcel.cs" />
+    <Compile Include="Models\ParcelType.cs" />
+    <Compile Include="Models\PathComponent.cs" />
+    <Compile Include="Models\ServiceAccount.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\WeightPrice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -165,7 +174,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -27,7 +27,7 @@ namespace EITParcelDelivery.Library
                 graph = new int[s, s];
         }
 
-        public void addUniEdge(int v, int u, int w)
+        public void addUniEdge(int u, int v, int w)
         {
             if (v < size && u < size && w >= 0)
             {
@@ -36,11 +36,14 @@ namespace EITParcelDelivery.Library
             }
         }
 
+        public void addDirEdge(int u, int v, int w)
+        {
+            if (v < size && u < size && w >= 0)
+            {
+                graph[u, v] = w;
+            }
+        }
 
-
-        //// Method name: calculatePath 
-        //// Input:       Source, Destination, Edges, ParcelTypes, WeightPrice, OptimizeFor
-        //// Output:      PathComponent, Price, ETA
 
 
         public int getPrice()
@@ -48,7 +51,7 @@ namespace EITParcelDelivery.Library
             int sum = 0;
             foreach (int v in spList)
             {
-                //sum += Edges.getSegments(v) * WeightPrice.findPrice(Parcels.weight) * ParselType.fee(Parcels.type) / 100;
+                sum += segments * WeightPrice.findPrice(Parcels.weight) * (100 + ParselType.fee(Parcels.type)) / 100;
             }
 
             return sum;
@@ -163,6 +166,19 @@ namespace EITParcelDelivery.Library
                 spList.Insert(0, vertex);
             }
             return spList;
+        }
+    }
+
+    public class Edges
+    {
+        public int ID;
+        public int source;
+        public int dest;
+        public int segments;
+
+        public int getSegment(int id)
+        {
+
         }
     }
 }

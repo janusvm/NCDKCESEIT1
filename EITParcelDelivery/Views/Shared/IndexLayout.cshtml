@@ -13,10 +13,12 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body class="index-page">
-<div class="container body-content">
-    <div class="logo-header">
-        <img src="@Url.Content("~/Content/Images/eit-logo.png")" width="256px" alt="East India Trading Co."/>
+    <div class="navbar navbar-fixed-top logo-header">
+        <div class="container logo-container">
+            <img src="@Url.Content("~/Content/Images/eit-logo.png")" width="128px" alt="East India Trading Co." />
+        </div>
     </div>
+<div class="container body-content">
     @RenderBody()
     <hr/>
     <footer>

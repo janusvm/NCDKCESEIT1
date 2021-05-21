@@ -20,8 +20,7 @@
 }
 
 .logo-container {
-    text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 body {
@@ -53,4 +52,18 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.login-container {
+    background-color: #ffffff;
+    border-radius: 25px;
+    padding: 20px;
+    width: 300px;
+    height: 400px;
+}
+
+.tracking-container {
+    padding: 20px;
+    width: 300px;
+    height: 400px;
 }

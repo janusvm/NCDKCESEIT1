@@ -8,6 +8,8 @@
 
         public string Password { get; set; }
 
+        public City City { get; set; }
+
         public Enums.Role Role { get; set; }
     }
 }

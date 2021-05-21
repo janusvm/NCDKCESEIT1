@@ -17,8 +17,8 @@ namespace EITParcelDelivery.Database
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public Nullable<int> City { get; set; }
-        public Nullable<int> Role { get; set; }
+        public int City { get; set; }
+        public int Role { get; set; }
     
         public virtual Cities Cities { get; set; }
         public virtual Roles Roles { get; set; }

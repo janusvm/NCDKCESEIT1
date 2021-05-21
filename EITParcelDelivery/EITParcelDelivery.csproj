@@ -168,6 +168,11 @@
     <Compile Include="Database\PathComponents.cs">
       <DependentUpon>EITDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\Repositories\EdgesRepository.cs" />
+    <Compile Include="Database\Repositories\ParcelsRepository.cs" />
+    <Compile Include="Database\Repositories\ParcelTypesRepository.cs" />
+    <Compile Include="Database\Repositories\PathComponentsRepository.cs" />
+    <Compile Include="Database\Repositories\UserRepository.cs" />
     <Compile Include="Database\Roles.cs">
       <DependentUpon>EITDB.tt</DependentUpon>
     </Compile>
@@ -183,7 +188,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Database\Interfaces\ICititesRepository.cs" />
     <Compile Include="Database\Models\City.cs" />
     <Compile Include="Database\Models\Edge.cs" />
     <Compile Include="Database\Enum\Enums.cs" />
@@ -203,8 +207,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Database\EITDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EITDB.Context.cs</LastGenOutput>
       <DependentUpon>EITDB.edmx</DependentUpon>
+      <LastGenOutput>EITDB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Database\EITDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

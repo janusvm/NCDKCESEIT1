@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Parcel]
+﻿CREATE TABLE [dbo].[Parcels]
 (
 	[Id] INT NOT NULL PRIMARY KEY,
 	[Type] INT NOT NULL FOREIGN KEY REFERENCES [dbo].[ParcelTypes](Id),

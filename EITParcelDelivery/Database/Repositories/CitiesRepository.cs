@@ -37,6 +37,18 @@ namespace EITParcelDelivery.Repositories
             return null;
         }
 
+        public City get(int id)
+        {
+            EITDBEntities ctx = new EITDBEntities();
+            var city = ctx.Cities.FirstOrDefault(x => x.Id == id);
+            if (city != null)
+            {
+                return mapFromEntity(city);
+            }
+
+            return null;
+        }
+
         private City mapFromEntity(Cities entity)
         {
             City obj = new City();

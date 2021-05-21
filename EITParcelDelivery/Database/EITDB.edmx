@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="EITDB_DEVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EITDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cities">
           <Key>
             <PropertyRef Name="Id" />
@@ -81,8 +81,8 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="City" Type="int" />
-          <Property Name="Role" Type="int" />
+          <Property Name="City" Type="int" Nullable="false" />
+          <Property Name="Role" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="WeightPrices">
           <Key>
@@ -178,7 +178,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Users__City__74AE54BC">
-          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cities">
@@ -190,7 +190,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Users__Role__75A278F5">
-          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
@@ -201,7 +201,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EITDB_DEVModelStoreContainer">
+        <EntityContainer Name="EITDBModelStoreContainer">
           <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Edges" EntityType="Self.Edges" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Parcel" EntityType="Self.Parcel" Schema="dbo" store:Type="Tables" />
@@ -249,69 +249,22 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="EITDB_DEVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="EITDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cities" EntityType="EITDB_DEVModel.Cities" />
-          <EntitySet Name="Edges" EntityType="EITDB_DEVModel.Edges" />
-          <EntitySet Name="Parcel" EntityType="EITDB_DEVModel.Parcel" />
-          <EntitySet Name="ParcelStatus" EntityType="EITDB_DEVModel.ParcelStatus" />
-          <EntitySet Name="ParcelTypes" EntityType="EITDB_DEVModel.ParcelTypes" />
-          <EntitySet Name="PathComponents" EntityType="EITDB_DEVModel.PathComponents" />
-          <EntitySet Name="Roles" EntityType="EITDB_DEVModel.Roles" />
-          <EntitySet Name="ServiceAccounts" EntityType="EITDB_DEVModel.ServiceAccounts" />
-          <EntitySet Name="Users" EntityType="EITDB_DEVModel.Users" />
-          <EntitySet Name="WeightPrices" EntityType="EITDB_DEVModel.WeightPrices" />
-          <AssociationSet Name="FK__Edges__Destinati__73BA3083" Association="EITDB_DEVModel.FK__Edges__Destinati__73BA3083">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="Edges" EntitySet="Edges" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Edges__Source__72C60C4A" Association="EITDB_DEVModel.FK__Edges__Source__72C60C4A">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="Edges" EntitySet="Edges" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PathCompon__City__70DDC3D8" Association="EITDB_DEVModel.FK__PathCompon__City__70DDC3D8">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="PathComponents" EntitySet="PathComponents" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Users__City__74AE54BC" Association="EITDB_DEVModel.FK__Users__City__74AE54BC">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="Users" EntitySet="Users" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Parcel__Start__6EF57B66" Association="EITDB_DEVModel.FK__Parcel__Start__6EF57B66">
-            <End Role="PathComponents" EntitySet="PathComponents" />
-            <End Role="Parcel" EntitySet="Parcel" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Parcel__Status__6FE99F9F" Association="EITDB_DEVModel.FK__Parcel__Status__6FE99F9F">
-            <End Role="ParcelStatus" EntitySet="ParcelStatus" />
-            <End Role="Parcel" EntitySet="Parcel" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Parcel__Type__6E01572D" Association="EITDB_DEVModel.FK__Parcel__Type__6E01572D">
-            <End Role="ParcelTypes" EntitySet="ParcelTypes" />
-            <End Role="Parcel" EntitySet="Parcel" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PathCompo__NextD__71D1E811" Association="EITDB_DEVModel.FK__PathCompo__NextD__71D1E811">
-            <End Role="PathComponents" EntitySet="PathComponents" />
-            <End Role="PathComponents1" EntitySet="PathComponents" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Users__Role__75A278F5" Association="EITDB_DEVModel.FK__Users__Role__75A278F5">
-            <End Role="Roles" EntitySet="Roles" />
-            <End Role="Users" EntitySet="Users" />
-          </AssociationSet>
-        </EntityContainer>
+      <Schema Namespace="EITDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Cities">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Available" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Edges" Relationship="EITDB_DEVModel.FK__Edges__Destinati__73BA3083" FromRole="Cities" ToRole="Edges" />
-          <NavigationProperty Name="Edges1" Relationship="EITDB_DEVModel.FK__Edges__Source__72C60C4A" FromRole="Cities" ToRole="Edges" />
-          <NavigationProperty Name="PathComponents" Relationship="EITDB_DEVModel.FK__PathCompon__City__70DDC3D8" FromRole="Cities" ToRole="PathComponents" />
-          <NavigationProperty Name="Users" Relationship="EITDB_DEVModel.FK__Users__City__74AE54BC" FromRole="Cities" ToRole="Users" />
+          <NavigationProperty Name="Edges" Relationship="Self.FK__Edges__Destinati__73BA3083" FromRole="Cities" ToRole="Edges" />
+          <NavigationProperty Name="Edges1" Relationship="Self.FK__Edges__Source__72C60C4A" FromRole="Cities" ToRole="Edges" />
+          <NavigationProperty Name="PathComponents" Relationship="Self.FK__PathCompon__City__70DDC3D8" FromRole="Cities" ToRole="PathComponents" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__City__74AE54BC" FromRole="Cities" ToRole="Users" />
         </EntityType>
         <EntityType Name="Edges">
           <Key>
@@ -321,8 +274,8 @@
           <Property Name="Source" Type="Int32" Nullable="false" />
           <Property Name="Destination" Type="Int32" Nullable="false" />
           <Property Name="Segments" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cities" Relationship="EITDB_DEVModel.FK__Edges__Destinati__73BA3083" FromRole="Edges" ToRole="Cities" />
-          <NavigationProperty Name="Cities1" Relationship="EITDB_DEVModel.FK__Edges__Source__72C60C4A" FromRole="Edges" ToRole="Cities" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__Edges__Destinati__73BA3083" FromRole="Edges" ToRole="Cities" />
+          <NavigationProperty Name="Cities1" Relationship="Self.FK__Edges__Source__72C60C4A" FromRole="Edges" ToRole="Cities" />
         </EntityType>
         <EntityType Name="Parcel">
           <Key>
@@ -335,9 +288,9 @@
           <Property Name="ETA" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Start" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PathComponents" Relationship="EITDB_DEVModel.FK__Parcel__Start__6EF57B66" FromRole="Parcel" ToRole="PathComponents" />
-          <NavigationProperty Name="ParcelStatus" Relationship="EITDB_DEVModel.FK__Parcel__Status__6FE99F9F" FromRole="Parcel" ToRole="ParcelStatus" />
-          <NavigationProperty Name="ParcelTypes" Relationship="EITDB_DEVModel.FK__Parcel__Type__6E01572D" FromRole="Parcel" ToRole="ParcelTypes" />
+          <NavigationProperty Name="PathComponents" Relationship="Self.FK__Parcel__Start__6EF57B66" FromRole="Parcel" ToRole="PathComponents" />
+          <NavigationProperty Name="ParcelStatus" Relationship="Self.FK__Parcel__Status__6FE99F9F" FromRole="Parcel" ToRole="ParcelStatus" />
+          <NavigationProperty Name="ParcelTypes" Relationship="Self.FK__Parcel__Type__6E01572D" FromRole="Parcel" ToRole="ParcelTypes" />
         </EntityType>
         <EntityType Name="ParcelStatus">
           <Key>
@@ -345,17 +298,17 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Parcel" Relationship="EITDB_DEVModel.FK__Parcel__Status__6FE99F9F" FromRole="ParcelStatus" ToRole="Parcel" />
+          <NavigationProperty Name="Parcel" Relationship="Self.FK__Parcel__Status__6FE99F9F" FromRole="ParcelStatus" ToRole="Parcel" />
         </EntityType>
         <EntityType Name="ParcelTypes">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Supported" Type="Boolean" Nullable="false" />
           <Property Name="Fee" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Parcel" Relationship="EITDB_DEVModel.FK__Parcel__Type__6E01572D" FromRole="ParcelTypes" ToRole="Parcel" />
+          <NavigationProperty Name="Parcel" Relationship="Self.FK__Parcel__Type__6E01572D" FromRole="ParcelTypes" ToRole="Parcel" />
         </EntityType>
         <EntityType Name="PathComponents">
           <Key>
@@ -365,25 +318,25 @@
           <Property Name="City" Type="Int32" Nullable="false" />
           <Property Name="ArrivedAt" Type="DateTime" Precision="3" />
           <Property Name="NextDestination" Type="Int32" />
-          <NavigationProperty Name="Cities" Relationship="EITDB_DEVModel.FK__PathCompon__City__70DDC3D8" FromRole="PathComponents" ToRole="Cities" />
-          <NavigationProperty Name="Parcel" Relationship="EITDB_DEVModel.FK__Parcel__Start__6EF57B66" FromRole="PathComponents" ToRole="Parcel" />
-          <NavigationProperty Name="PathComponents1" Relationship="EITDB_DEVModel.FK__PathCompo__NextD__71D1E811" FromRole="PathComponents" ToRole="PathComponents1" />
-          <NavigationProperty Name="PathComponents2" Relationship="EITDB_DEVModel.FK__PathCompo__NextD__71D1E811" FromRole="PathComponents1" ToRole="PathComponents" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__PathCompon__City__70DDC3D8" FromRole="PathComponents" ToRole="Cities" />
+          <NavigationProperty Name="Parcel" Relationship="Self.FK__Parcel__Start__6EF57B66" FromRole="PathComponents" ToRole="Parcel" />
+          <NavigationProperty Name="PathComponents1" Relationship="Self.FK__PathCompo__NextD__71D1E811" FromRole="PathComponents" ToRole="PathComponents1" />
+          <NavigationProperty Name="PathComponents2" Relationship="Self.FK__PathCompo__NextD__71D1E811" FromRole="PathComponents1" ToRole="PathComponents" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Role" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Users" Relationship="EITDB_DEVModel.FK__Users__Role__75A278F5" FromRole="Roles" ToRole="Users" />
+          <Property Name="Role" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__Role__75A278F5" FromRole="Roles" ToRole="Users" />
         </EntityType>
         <EntityType Name="ServiceAccounts">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Organization" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="APIKey" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Users">
@@ -391,12 +344,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="City" Type="Int32" />
-          <Property Name="Role" Type="Int32" />
-          <NavigationProperty Name="Cities" Relationship="EITDB_DEVModel.FK__Users__City__74AE54BC" FromRole="Users" ToRole="Cities" />
-          <NavigationProperty Name="Roles" Relationship="EITDB_DEVModel.FK__Users__Role__75A278F5" FromRole="Users" ToRole="Roles" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="Int32" Nullable="false" />
+          <Property Name="Role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__Users__City__74AE54BC" FromRole="Users" ToRole="Cities" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__Users__Role__75A278F5" FromRole="Users" ToRole="Roles" />
         </EntityType>
         <EntityType Name="WeightPrices">
           <Key>
@@ -408,8 +361,8 @@
           <Property Name="Price" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK__Edges__Destinati__73BA3083">
-          <End Type="EITDB_DEVModel.Cities" Role="Cities" Multiplicity="1" />
-          <End Type="EITDB_DEVModel.Edges" Role="Edges" Multiplicity="*" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Edges" Type="Self.Edges" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cities">
               <PropertyRef Name="Id" />
@@ -420,8 +373,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Edges__Source__72C60C4A">
-          <End Type="EITDB_DEVModel.Cities" Role="Cities" Multiplicity="1" />
-          <End Type="EITDB_DEVModel.Edges" Role="Edges" Multiplicity="*" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Edges" Type="Self.Edges" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cities">
               <PropertyRef Name="Id" />
@@ -432,8 +385,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PathCompon__City__70DDC3D8">
-          <End Type="EITDB_DEVModel.Cities" Role="Cities" Multiplicity="1" />
-          <End Type="EITDB_DEVModel.PathComponents" Role="PathComponents" Multiplicity="*" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="PathComponents" Type="Self.PathComponents" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cities">
               <PropertyRef Name="Id" />
@@ -444,8 +397,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Users__City__74AE54BC">
-          <End Type="EITDB_DEVModel.Cities" Role="Cities" Multiplicity="0..1" />
-          <End Type="EITDB_DEVModel.Users" Role="Users" Multiplicity="*" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cities">
               <PropertyRef Name="Id" />
@@ -456,8 +409,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Parcel__Start__6EF57B66">
-          <End Type="EITDB_DEVModel.PathComponents" Role="PathComponents" Multiplicity="1" />
-          <End Type="EITDB_DEVModel.Parcel" Role="Parcel" Multiplicity="*" />
+          <End Role="PathComponents" Type="Self.PathComponents" Multiplicity="1" />
+          <End Role="Parcel" Type="Self.Parcel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PathComponents">
               <PropertyRef Name="Id" />
@@ -468,8 +421,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Parcel__Status__6FE99F9F">
-          <End Type="EITDB_DEVModel.ParcelStatus" Role="ParcelStatus" Multiplicity="1" />
-          <End Type="EITDB_DEVModel.Parcel" Role="Parcel" Multiplicity="*" />
+          <End Role="ParcelStatus" Type="Self.ParcelStatus" Multiplicity="1" />
+          <End Role="Parcel" Type="Self.Parcel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ParcelStatus">
               <PropertyRef Name="Id" />
@@ -480,8 +433,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Parcel__Type__6E01572D">
-          <End Type="EITDB_DEVModel.ParcelTypes" Role="ParcelTypes" Multiplicity="1" />
-          <End Type="EITDB_DEVModel.Parcel" Role="Parcel" Multiplicity="*" />
+          <End Role="ParcelTypes" Type="Self.ParcelTypes" Multiplicity="1" />
+          <End Role="Parcel" Type="Self.Parcel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ParcelTypes">
               <PropertyRef Name="Id" />
@@ -492,8 +445,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PathCompo__NextD__71D1E811">
-          <End Type="EITDB_DEVModel.PathComponents" Role="PathComponents" Multiplicity="0..1" />
-          <End Type="EITDB_DEVModel.PathComponents" Role="PathComponents1" Multiplicity="*" />
+          <End Role="PathComponents" Type="Self.PathComponents" Multiplicity="0..1" />
+          <End Role="PathComponents1" Type="Self.PathComponents" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PathComponents">
               <PropertyRef Name="Id" />
@@ -504,8 +457,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Users__Role__75A278F5">
-          <End Type="EITDB_DEVModel.Roles" Role="Roles" Multiplicity="0..1" />
-          <End Type="EITDB_DEVModel.Users" Role="Users" Multiplicity="*" />
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
               <PropertyRef Name="Id" />
@@ -515,107 +468,155 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="EITDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cities" EntityType="Self.Cities" />
+          <EntitySet Name="Edges" EntityType="Self.Edges" />
+          <EntitySet Name="Parcel" EntityType="Self.Parcel" />
+          <EntitySet Name="ParcelStatus" EntityType="Self.ParcelStatus" />
+          <EntitySet Name="ParcelTypes" EntityType="Self.ParcelTypes" />
+          <EntitySet Name="PathComponents" EntityType="Self.PathComponents" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="ServiceAccounts" EntityType="Self.ServiceAccounts" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="WeightPrices" EntityType="Self.WeightPrices" />
+          <AssociationSet Name="FK__Edges__Destinati__73BA3083" Association="Self.FK__Edges__Destinati__73BA3083">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Edges" EntitySet="Edges" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Edges__Source__72C60C4A" Association="Self.FK__Edges__Source__72C60C4A">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Edges" EntitySet="Edges" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PathCompon__City__70DDC3D8" Association="Self.FK__PathCompon__City__70DDC3D8">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="PathComponents" EntitySet="PathComponents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__City__74AE54BC" Association="Self.FK__Users__City__74AE54BC">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Parcel__Start__6EF57B66" Association="Self.FK__Parcel__Start__6EF57B66">
+            <End Role="PathComponents" EntitySet="PathComponents" />
+            <End Role="Parcel" EntitySet="Parcel" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Parcel__Status__6FE99F9F" Association="Self.FK__Parcel__Status__6FE99F9F">
+            <End Role="ParcelStatus" EntitySet="ParcelStatus" />
+            <End Role="Parcel" EntitySet="Parcel" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Parcel__Type__6E01572D" Association="Self.FK__Parcel__Type__6E01572D">
+            <End Role="ParcelTypes" EntitySet="ParcelTypes" />
+            <End Role="Parcel" EntitySet="Parcel" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PathCompo__NextD__71D1E811" Association="Self.FK__PathCompo__NextD__71D1E811">
+            <End Role="PathComponents" EntitySet="PathComponents" />
+            <End Role="PathComponents1" EntitySet="PathComponents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__Role__75A278F5" Association="Self.FK__Users__Role__75A278F5">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EITDB_DEVModelStoreContainer" CdmEntityContainer="EITDBEntities">
+        <EntityContainerMapping StorageEntityContainer="EITDBModelStoreContainer" CdmEntityContainer="EITDBEntities">
           <EntitySetMapping Name="Cities">
-            <EntityTypeMapping TypeName="EITDB_DEVModel.Cities">
+            <EntityTypeMapping TypeName="EITDBModel.Cities">
               <MappingFragment StoreEntitySet="Cities">
-                <ScalarProperty Name="Available" ColumnName="Available" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Available" ColumnName="Available" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Edges">
-            <EntityTypeMapping TypeName="EITDB_DEVModel.Edges">
+            <EntityTypeMapping TypeName="EITDBModel.Edges">
               <MappingFragment StoreEntitySet="Edges">
-                <ScalarProperty Name="Segments" ColumnName="Segments" />
-                <ScalarProperty Name="Destination" ColumnName="Destination" />
-                <ScalarProperty Name="Source" ColumnName="Source" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="Segments" ColumnName="Segments" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Parcel">
-            <EntityTypeMapping TypeName="EITDB_DEVModel.Parcel">
+            <EntityTypeMapping TypeName="EITDBModel.Parcel">
               <MappingFragment StoreEntitySet="Parcel">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Start" ColumnName="Start" />
-                <ScalarProperty Name="ETA" ColumnName="ETA" />
-                <ScalarProperty Name="Weight" ColumnName="Weight" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="ETA" ColumnName="ETA" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ParcelStatus">
-            <EntityTypeMapping TypeName="EITDB_DEVModel.ParcelStatus">
+            <EntityTypeMapping TypeName="EITDBModel.ParcelStatus">
               <MappingFragment StoreEntitySet="ParcelStatus">
-                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ParcelTypes">
-            <EntityTypeMapping TypeName="EITDB_DEVModel.ParcelTypes">
+            <EntityTypeMapping TypeName="EITDBModel.ParcelTypes">
               <MappingFragment StoreEntitySet="ParcelTypes">
-                <ScalarProperty Name="Fee" ColumnName="Fee" />
-                <ScalarProperty Name="Supported" ColumnName="Supported" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Supported" ColumnName="Supported" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PathComponents">
-            <EntityTypeMapping TypeName="EITDB_DEVModel.PathComponents">
+            <EntityTypeMapping TypeName="EITDBModel.PathComponents">
               <MappingFragment StoreEntitySet="PathComponents">
-                <ScalarProperty Name="NextDestination" ColumnName="NextDestination" />
-                <ScalarProperty Name="ArrivedAt" ColumnName="ArrivedAt" />
-                <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ArrivedAt" ColumnName="ArrivedAt" />
+                <ScalarProperty Name="NextDestination" ColumnName="NextDestination" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="EITDB_DEVModel.Roles">
+            <EntityTypeMapping TypeName="EITDBModel.Roles">
               <MappingFragment StoreEntitySet="Roles">
-                <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ServiceAccounts">
-            <EntityTypeMapping TypeName="EITDB_DEVModel.ServiceAccounts">
+            <EntityTypeMapping TypeName="EITDBModel.ServiceAccounts">
               <MappingFragment StoreEntitySet="ServiceAccounts">
-                <ScalarProperty Name="APIKey" ColumnName="APIKey" />
-                <ScalarProperty Name="Organization" ColumnName="Organization" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Organization" ColumnName="Organization" />
+                <ScalarProperty Name="APIKey" ColumnName="APIKey" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="EITDB_DEVModel.Users">
+            <EntityTypeMapping TypeName="EITDBModel.Users">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="Role" ColumnName="Role" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WeightPrices">
-            <EntityTypeMapping TypeName="EITDB_DEVModel.WeightPrices">
+            <EntityTypeMapping TypeName="EITDBModel.WeightPrices">
               <MappingFragment StoreEntitySet="WeightPrices">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Maximum" ColumnName="Maximum" />
-                <ScalarProperty Name="Minimum" ColumnName="Minimum" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Minimum" ColumnName="Minimum" />
+                <ScalarProperty Name="Maximum" ColumnName="Maximum" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

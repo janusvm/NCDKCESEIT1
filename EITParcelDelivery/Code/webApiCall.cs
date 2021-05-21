@@ -17,4 +17,12 @@ namespace EITParcelDelivery.Code
             return s;
         }
     }
+
+    public class Parcel
+    {
+        public string available { get; set; }
+        public string price { get; set; }
+        public int fee { get; set; }
+        public string duration { get; set; }
+    }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EITParcelDelivery.Code;
+using System.Collections;
+using System.Web.Script.Serialization;
 
 namespace EITParcelDelivery.Controllers
 {
@@ -17,7 +19,10 @@ namespace EITParcelDelivery.Controllers
         public ActionResult About()
         {
             webApiCall w = new webApiCall();
-            ViewBag.Message = "Your application description page." + w.getParcel();
+            JavaScriptSerializer JSS = new JavaScriptSerializer();
+            Dictionary<string, object> parsedObj = JSS.Deserialize<Dictionary<string, object>>(w.getParcel());
+
+            ViewBag.Message = "available: " + parsedObj["available"];
 
             return View();
         }

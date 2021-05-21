@@ -135,7 +135,6 @@
     </Compile>
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\SendParcelViewModel.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Database\Cities.cs">
       <DependentUpon>EITDB.tt</DependentUpon>
     </Compile>
@@ -225,6 +224,8 @@
     <Content Include="Database\EITDB.edmx.diagram">
       <DependentUpon>EITDB.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\wa-eit-dk1 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\wa-eit-dk1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -250,12 +251,12 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\IndexLayout.cshtml" />
     <Content Include="Views\SendParcel\Index.cshtml" />
+    <Content Include="Views\Shared\PageLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

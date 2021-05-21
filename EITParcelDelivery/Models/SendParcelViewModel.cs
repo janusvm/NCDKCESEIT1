@@ -25,7 +25,7 @@ namespace EITParcelDelivery.Models
 
         public IEnumerable<string> getCityNames()
         {
-            return Cities.Where(c => c.Available).Select(c => c.name);
+            return Cities.Where(c => c.Available).Select(c => c.Name);
         }
     }
 }

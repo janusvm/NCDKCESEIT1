@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EITParcelDelivery.Models;
+using EITParcelDelivery.Repositories;
 
 namespace EITParcelDelivery.Controllers
 {
@@ -12,13 +13,10 @@ namespace EITParcelDelivery.Controllers
         // GET: SendParcel
         public ActionResult Index()
         {
-            var x = new SendParcelViewModel();
-            x.Cities = new List<City>
-            {
-                new City { Id = 1, name = "Teehee", Available = true },
-                new City { Id = 2, name = "Poopee", Available = false }
-            };
-            return View(x);
+            var vm = new SendParcelViewModel();
+            var rp = new CitiesRepository();
+            vm.Cities = rp.getAll();
+            return View(vm);
         }
     }
 }

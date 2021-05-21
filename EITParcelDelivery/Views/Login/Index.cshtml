@@ -35,8 +35,13 @@
                 url: "@Url.Action("Login", "Login")",
                 type: "GET",
                 data: { username: user, password: pass },
-                success: function(result) {
-                    alert(result);
+                success: function(id) {
+                    if (id === 0) {
+                        alert("Error");
+                    } else {
+                        var url = '@Url.Action("Index", "SendParcel", new { id = "__id__" })';
+                        window.location.href = url.replace('__id__', id);
+                    }
                 },
                 error: function(error) {
                     alert(result);

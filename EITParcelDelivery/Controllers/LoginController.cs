@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EITParcelDelivery.Database.Repositories;
 
 namespace EITParcelDelivery.Controllers
 {
@@ -16,13 +17,15 @@ namespace EITParcelDelivery.Controllers
 
         public ActionResult Login(string username, string password)
         {
-            if (username == "poopen" && password == "farden")
+            var userRepo = new UserRepository();
+            var user = userRepo.get(username, password);
+            if (user != null)
             {
-                return Json("Success!", JsonRequestBehavior.AllowGet);
+                return Json(user.Id, JsonRequestBehavior.AllowGet);
             }
             else
             {
-                return Json("Failure!", JsonRequestBehavior.AllowGet);
+                return Json(0, JsonRequestBehavior.AllowGet);
             }
             
         }

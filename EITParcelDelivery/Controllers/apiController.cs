@@ -16,8 +16,7 @@ namespace EITParcelDelivery.Controllers
             {
                 available = true,
                 price = 100,
-                fee = 10,
-                duration = 10
+                time = 10
             };
             return Json(data, JsonRequestBehavior.AllowGet);
         }

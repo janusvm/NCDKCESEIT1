@@ -25,6 +25,7 @@ namespace EITParcelDelivery.Database
     
         public int Id { get; set; }
         public string Name { get; set; }
+        public bool Available { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Edges> Edges { get; set; }

@@ -16,6 +16,6 @@ namespace EITParcelDelivery.Database
     {
         public int Id { get; set; }
         public string Organization { get; set; }
-        public string API_Key { get; set; }
+        public string APIKey { get; set; }
     }
 }

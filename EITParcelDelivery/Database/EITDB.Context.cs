@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EITParcelDelivery
+namespace EITParcelDelivery.Database
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EITDB_DEVEntities : DbContext
+    public partial class EITDBEntities : DbContext
     {
-        public EITDB_DEVEntities()
-            : base("name=EITDB_DEVEntities")
+        public EITDBEntities()
+            : base("name=EITDBEntities")
         {
         }
     
@@ -31,6 +31,7 @@ namespace EITParcelDelivery
         public virtual DbSet<ParcelStatus> ParcelStatus { get; set; }
         public virtual DbSet<ParcelTypes> ParcelTypes { get; set; }
         public virtual DbSet<PathComponents> PathComponents { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<ServiceAccounts> ServiceAccounts { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<WeightPrices> WeightPrices { get; set; }

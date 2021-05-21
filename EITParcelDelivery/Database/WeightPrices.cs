@@ -15,8 +15,8 @@ namespace EITParcelDelivery.Database
     public partial class WeightPrices
     {
         public int Id { get; set; }
-        public int Min { get; set; }
-        public int Max { get; set; }
+        public int Minimum { get; set; }
+        public int Maximum { get; set; }
         public int Price { get; set; }
     }
 }

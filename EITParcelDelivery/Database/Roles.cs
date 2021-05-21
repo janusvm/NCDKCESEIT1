@@ -12,15 +12,18 @@ namespace EITParcelDelivery.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class Roles
     {
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public Nullable<int> City { get; set; }
-        public Nullable<int> Role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Roles()
+        {
+            this.Users = new HashSet<Users>();
+        }
     
-        public virtual Cities Cities { get; set; }
-        public virtual Roles Roles { get; set; }
+        public int Id { get; set; }
+        public string Role { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

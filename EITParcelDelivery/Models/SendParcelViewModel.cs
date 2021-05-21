@@ -23,9 +23,16 @@ namespace EITParcelDelivery.Models
 
         public List<City> Cities { get; set; }
 
+        public List<ParcelType> ParcelTypes { get; set; }
+
         public IEnumerable<string> getCityNames()
         {
             return Cities.Where(c => c.Available).Select(c => c.Name);
+        }
+
+        public IEnumerable<string> getParcelTypes()
+        {
+            return ParcelTypes.Select(pt => pt.Type);
         }
     }
 }

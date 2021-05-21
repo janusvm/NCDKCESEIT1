@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EITParcelDelivery.Database.Repositories;
 using EITParcelDelivery.Models;
 using EITParcelDelivery.Repositories;
 
@@ -14,8 +15,10 @@ namespace EITParcelDelivery.Controllers
         public ActionResult Index()
         {
             var vm = new SendParcelViewModel();
-            var rp = new CitiesRepository();
-            vm.Cities = rp.getAll();
+            var cr = new CitiesRepository();
+            var ptr = new ParcelTypesRepository();
+            vm.Cities = cr.getAll();
+            vm.ParcelTypes = ptr.getAll();
             return View(vm);
         }
     }

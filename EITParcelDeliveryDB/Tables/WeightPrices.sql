@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[WeightPrices]
 (
 	[Id] INT NOT NULL PRIMARY KEY,
-	[Min] INT NOT NULL,
-	[Max] INT NOT NULL,
+	[Minimum] INT NOT NULL,
+	[Maximum] INT NOT NULL,
 	[Price] INT NOT NULL
 )

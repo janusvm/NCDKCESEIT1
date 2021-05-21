@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[ServiceAccounts]
 (
 	[Id] INT NOT NULL PRIMARY KEY,
-	[Organization] VARCHAR(20) NOT NULL,
-	[API_Key] VARCHAR(20)
+	[Organization] VARCHAR(50) NOT NULL,
+	[APIKey] VARCHAR(50)
 )

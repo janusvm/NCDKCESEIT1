@@ -1,0 +1,26 @@
+﻿@using EITParcelDelivery.Models
+@model SendParcelViewModel
+
+@{
+    Layout = "~/Views/Shared/IndexLayout.cshtml";
+    ViewBag.Title = "Send parcel";
+}
+<h2>@ViewBag.Title</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        <div class="form-group">
+            @Html.LabelFor(x => x.Weight)
+            @Html.TextBoxFor(x => x.Weight, new { @class = "form-control", placeholder = "Weight", id = "weight", @type = "number" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Source)
+            @Html.DropDownListFor(x => x.Destination, new SelectList(@Model.getCityNames()), new { @class = "form-control", id = "source"})
+        </div>
+        
+        <button id="sendButton" type="submit" class="btn btn-primary btn-lg">Login</button>
+    }
+</div>

@@ -1,10 +1,42 @@
-﻿body {
+﻿@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@700&family=Open+Sans&family=Poppins&display=swap');
+
+:root {
+    --primary: #00207e;
+    --secondary: #ffffff;
+    --dark: #000051;
+    --light: 4948ae;
+}
+
+.index-page {
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+.logo-header {
+    width: 100%;
+    background-color: var(--primary);
+}
+
+.logo-container {
+    text-align: center;
+    padding: 20px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
     padding-top: 50px;
     padding-bottom: 20px;
 }
 
+h1, h2, h3 {
+    font-family: 'Newsreader', serif;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
+    padding-top: 150px;
     padding-left: 15px;
     padding-right: 15px;
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="87ca4f2cef8b4dee8db2cf20fedee91a" Name="Diagram1">
+        <EntityTypeShape EntityType="EITDBModel.Cities" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EITDBModel.Edges" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EITDBModel.Parcel" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EITDBModel.ParcelStatus" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EITDBModel.ParcelTypes" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EITDBModel.PathComponents" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EITDBModel.Roles" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EITDBModel.ServiceAccounts" Width="1.5" PointX="7.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EITDBModel.Users" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EITDBModel.WeightPrices" Width="1.5" PointX="8.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="EITDBModel.FK__Edges__Destinati__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="EITDBModel.FK__Edges__Source__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="EITDBModel.FK__PathCompon__City__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="EITDBModel.FK__Users__City__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="EITDBModel.FK__Parcel__Start__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="EITDBModel.FK__Parcel__Status__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="EITDBModel.FK__Parcel__Type__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="EITDBModel.FK__PathCompo__NextD__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="EITDBModel.FK__Users__Role__75A278F5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

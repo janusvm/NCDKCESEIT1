@@ -38,7 +38,7 @@ namespace EITParcelDelivery.Database.Repositories
             obj.Id = entity.Id;
             obj.Username = entity.Username;
             obj.Password = entity.Password;
-            obj.Role = entity.Role;
+            obj.Role = entity.Role == 1 ? Enums.Role.Admin : Enums.Role.PortManager;
             return obj;
         }
 
@@ -47,7 +47,7 @@ namespace EITParcelDelivery.Database.Repositories
             entity.Id = obj.Id;
             entity.Username = obj.Username;
             entity.Password = obj.Password;
-            entity.Role = obj.Role;
+            entity.Role = (int)obj.Role;
             return entity;
         }
     }

@@ -129,7 +129,56 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Database\Cities.cs">
+      <DependentUpon>EITDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Edges.cs">
+      <DependentUpon>EITDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\EITDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EITDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\EITDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EITDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\EITDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EITDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Parcel.cs">
+      <DependentUpon>EITDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ParcelStatus.cs">
+      <DependentUpon>EITDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ParcelTypes.cs">
+      <DependentUpon>EITDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\PathComponents.cs">
+      <DependentUpon>EITDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Repositories\EdgesRepository.cs" />
+    <Compile Include="Database\Repositories\ParcelsRepository.cs" />
+    <Compile Include="Database\Repositories\ParcelTypesRepository.cs" />
+    <Compile Include="Database\Repositories\PathComponentsRepository.cs" />
     <Compile Include="Database\Repositories\UserRepository.cs" />
+    <Compile Include="Database\Roles.cs">
+      <DependentUpon>EITDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ServiceAccounts.cs">
+      <DependentUpon>EITDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Users.cs">
+      <DependentUpon>EITDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\WeightPrices.cs">
+      <DependentUpon>EITDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -150,12 +199,29 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Database\EITDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EITDB.edmx</DependentUpon>
+      <LastGenOutput>EITDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\EITDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EITDB.edmx</DependentUpon>
+      <LastGenOutput>EITDB.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Database\EITDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EITDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Database\EITDB.edmx.diagram">
+      <DependentUpon>EITDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

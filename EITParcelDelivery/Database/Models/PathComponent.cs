@@ -8,8 +8,8 @@ namespace EITParcelDelivery.Models
 
         public City City { get; set; }
 
-        public City NextDestination { get; set; }
+        public PathComponent NextDestination { get; set; }
 
-        public DateTime ArrivedAt { get; set; }
+        public DateTime? ArrivedAt { get; set; }
     }
 }

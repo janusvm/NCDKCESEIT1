@@ -69,6 +69,7 @@
     <Build Include="Tables\Parcel.sql" />
     <Build Include="Tables\Users.sql" />
     <Build Include="Tables\ServiceAccounts.sql" />
+    <Build Include="Tables\Roles.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\CreateCodelist.sql" />

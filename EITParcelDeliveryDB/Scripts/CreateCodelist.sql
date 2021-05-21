@@ -29,7 +29,7 @@ UNION SELECT 13, 'Darfur', 1
 UNION SELECT 14, 'Slavekysten', 1
 UNION SELECT 15, 'Guldkysten', 1
 UNION SELECT 16, 'Sierra Leone', 1
-UNION SELECT 17, 'ST. Helena', 1
+UNION SELECT 17, 'St. Helena', 1
 UNION SELECT 18, 'Luanda', 1
 UNION SELECT 19, 'Congo', 1
 UNION SELECT 20, 'Kabalo', 1

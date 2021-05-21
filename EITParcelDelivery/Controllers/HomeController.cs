@@ -16,7 +16,8 @@ namespace EITParcelDelivery.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            webApiCall w = new webApiCall();
+            ViewBag.Message = "Your application description page." + w.getParcel();
 
             return View();
         }
